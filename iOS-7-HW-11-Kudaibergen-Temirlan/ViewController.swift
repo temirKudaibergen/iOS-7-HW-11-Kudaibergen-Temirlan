@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     
     private var emailTextField: UITextField = {
         let emailImage = UIImage(named: "user")
+        let correctImage = UIImage(named: "correct")
         let emailTextField = UITextField()
         emailTextField.placeholder = "Email"
         emailTextField.textColor = .black
@@ -35,7 +36,8 @@ class ViewController: UIViewController {
         emailTextField.layer.cornerRadius = 19
         emailTextField.returnKeyType = .go
         emailTextField.clearButtonMode = .whileEditing
-        emailTextField.setLefyIcon(emailImage ?? UIImage.remove)
+        emailTextField.setLeftIcon(emailImage ?? UIImage.remove)
+        emailTextField.setRightIcon(image: correctImage ?? UIImage.remove)
         return emailTextField
     }()
     
@@ -51,7 +53,7 @@ class ViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 19
         passwordTextField.returnKeyType = .go
         passwordTextField.clearButtonMode = .whileEditing
-        passwordTextField.setLefyIcon(passwordImage ?? UIImage.remove)
+        passwordTextField.setLeftIcon(passwordImage ?? UIImage.remove)
         return passwordTextField
     }()
     
@@ -102,26 +104,36 @@ class ViewController: UIViewController {
     }()
     
     private var buttonFacebook: UIButton = {
-        let facebookIcon = UIImage(named: "facebook.png")
-        let buttonLogin = UIButton()
-        buttonLogin.backgroundColor = .systemBlue
-        buttonLogin.clipsToBounds = true
-        buttonLogin.layer.cornerRadius = 15
-        buttonLogin.setTitle("Facebook", for: .normal)
-        buttonLogin.setTitleColor(.white, for: .normal)
-        buttonLogin.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        return buttonLogin
+        let buttonFacebook = UIButton()
+        buttonFacebook.backgroundColor = .systemBlue
+        buttonFacebook.layer.cornerRadius = 15
+        buttonFacebook.setTitle("Facebook", for: .normal)
+        buttonFacebook.setTitleColor(.white, for: .normal)
+        buttonFacebook.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        return buttonFacebook
+    }()
+    
+    private var facebookIcon: UIImageView = {
+        let iconView = UIImageView(frame: CGRect(x: 10, y: 5, width: 20, height: 20))
+        iconView.image =  UIImage(named: "facebook")
+        return iconView
     }()
     
     private var buttonTwitter: UIButton = {
-        let buttonLogin = UIButton()
-        buttonLogin.backgroundColor = .blue
-        buttonLogin.clipsToBounds = true
-        buttonLogin.layer.cornerRadius = 15
-        buttonLogin.setTitle("Twitter", for: .normal)
-        buttonLogin.setTitleColor(.white, for: .normal)
-        buttonLogin.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        return buttonLogin
+        let buttonTwitter = UIButton()
+        buttonTwitter.backgroundColor = .blue
+        buttonTwitter.clipsToBounds = true
+        buttonTwitter.layer.cornerRadius = 15
+        buttonTwitter.setTitle("Twitter", for: .normal)
+        buttonTwitter.setTitleColor(.white, for: .normal)
+        buttonTwitter.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        return buttonTwitter
+    }()
+    
+    private var twitterIcon: UIImageView = {
+        let iconView = UIImageView(frame: CGRect(x: 10, y: 5, width: 20, height: 20))
+        iconView.image =  UIImage(named: "twitter")
+        return iconView
     }()
     
     private var lableHaveAccount: UILabel = {
@@ -161,6 +173,8 @@ class ViewController: UIViewController {
         view.addSubview(buttonTwitter)
         view.addSubview(lableHaveAccount)
         view.addSubview(buttonSignUp)
+        view.addSubview(facebookIcon)
+        view.addSubview(twitterIcon)
         setupLayout()
         setupHierarchy()
     }
@@ -180,6 +194,8 @@ class ViewController: UIViewController {
         view.addSubview(buttonTwitter)
         view.addSubview(lableHaveAccount)
         view.addSubview(buttonSignUp)
+        view.addSubview(facebookIcon)
+        view.addSubview(twitterIcon)
     }
     
     private func setupLayout() {
@@ -245,11 +261,25 @@ class ViewController: UIViewController {
             make.width.equalTo(150)
         }
         
+        facebookIcon.snp.makeConstraints { make in
+            make.centerX.equalTo(buttonFacebook.snp_centerXWithinMargins).offset(-55)
+            make.top.equalTo(lineLeft).offset(37)
+            make.height.equalTo(24)
+            make.width.equalTo(24)
+        }
+        
         buttonTwitter.snp.makeConstraints { make in
             make.centerX.equalTo(view).offset(80)
             make.top.equalTo(lineRigth).offset(35)
             make.height.equalTo(29)
             make.width.equalTo(150)
+        }
+        
+        twitterIcon.snp.makeConstraints { make in
+            make.centerX.equalTo(buttonTwitter.snp_centerXWithinMargins).offset(-55)
+            make.top.equalTo(lineRigth).offset(37)
+            make.height.equalTo(24)
+            make.width.equalTo(24)
         }
         
         lableHaveAccount.snp.makeConstraints { make in
@@ -270,14 +300,22 @@ class ViewController: UIViewController {
 // MARK: - Actions
 
 extension UITextField {
-    func setLefyIcon(_ image: UIImage) {
-        let iconView = UIImageView(frame: CGRect(x: 10, y: 5, width: 20, height: 20))
+    func setLeftIcon(_ image: UIImage) {
+        let iconView = UIImageView(frame: CGRect(x: 10, y: 4, width: 20, height: 20))
         iconView.image = image
         let iconContainerView: UIView = UIView(frame: CGRect(x: 20, y: 0, width: 37, height: 30))
         iconContainerView.addSubview(iconView)
         leftView = iconContainerView
         leftViewMode = .always
-        
+    }
+    
+    func setRightIcon(image: UIImage) {
+        let iconView = UIImageView(frame: CGRect(x: 10, y: 4, width: 20, height: 20))
+        iconView.image = image
+        let iconContainerView: UIView = UIView(frame: CGRect(x: 25, y: 0, width: 40, height: 30))
+        iconContainerView.addSubview(iconView)
+        rightView = iconContainerView
+        rightViewMode = .always
     }
 }
 
