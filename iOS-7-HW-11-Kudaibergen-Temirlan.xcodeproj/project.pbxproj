@@ -56,15 +56,55 @@
 		C80D671829AA372C00B73813 /* iOS-7-HW-11-Kudaibergen-Temirlan */ = {
 			isa = PBXGroup;
 			children = (
-				C80D671929AA372C00B73813 /* AppDelegate.swift */,
-				C80D671B29AA372C00B73813 /* SceneDelegate.swift */,
+				C80D672D29AA373400B73813 /* Resources */,
+				C80D672F29AA374E00B73813 /* Sources */,
 				C80D671D29AA372C00B73813 /* ViewController.swift */,
-				C80D671F29AA372C00B73813 /* Main.storyboard */,
-				C80D672229AA372D00B73813 /* Assets.xcassets */,
-				C80D672429AA372D00B73813 /* LaunchScreen.storyboard */,
-				C80D672729AA372D00B73813 /* Info.plist */,
 			);
 			path = "iOS-7-HW-11-Kudaibergen-Temirlan";
+			sourceTree = "<group>";
+		};
+		C80D672D29AA373400B73813 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C80D672229AA372D00B73813 /* Assets.xcassets */,
+				C80D672E29AA373B00B73813 /* Configuration */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C80D672E29AA373B00B73813 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				C80D672729AA372D00B73813 /* Info.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		C80D672F29AA374E00B73813 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C80D673129AA376400B73813 /* Storyboards */,
+				C80D673029AA375B00B73813 /* App */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C80D673029AA375B00B73813 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C80D671929AA372C00B73813 /* AppDelegate.swift */,
+				C80D671B29AA372C00B73813 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C80D673129AA376400B73813 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C80D672429AA372D00B73813 /* LaunchScreen.storyboard */,
+				C80D671F29AA372C00B73813 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +328,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS-7-HW-11-Kudaibergen-Temirlan/Info.plist";
+				INFOPLIST_FILE = "iOS-7-HW-11-Kudaibergen-Temirlan/Resources/Configuration/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -315,7 +355,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS-7-HW-11-Kudaibergen-Temirlan/Info.plist";
+				INFOPLIST_FILE = "iOS-7-HW-11-Kudaibergen-Temirlan/Resources/Configuration/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
