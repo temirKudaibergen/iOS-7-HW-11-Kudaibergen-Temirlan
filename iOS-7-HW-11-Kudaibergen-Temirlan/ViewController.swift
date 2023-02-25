@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         buttonForgotPsw.backgroundColor = .none
         buttonForgotPsw.clipsToBounds = true
         buttonForgotPsw.setTitle("Forgot your password?", for: .normal)
-        buttonForgotPsw.setTitleColor(.white, for: .normal)
+        buttonForgotPsw.setTitleColor(.lightGray, for: .normal)
         buttonForgotPsw.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         return buttonForgotPsw
     }()
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         let lable = UILabel()
         lable.text = "or connect with"
         lable.textAlignment = .center
-        lable.font = UIFont.boldSystemFont(ofSize: 20)
+        lable.font = UIFont.systemFont(ofSize: 15)
         lable.textColor = .lightGray
         lable.translatesAutoresizingMaskIntoConstraints = false
         return lable
@@ -128,7 +128,7 @@ class ViewController: UIViewController {
         let lable = UILabel()
         lable.text = "Dont have account?"
         lable.textAlignment = .center
-        lable.font = UIFont.boldSystemFont(ofSize: 13)
+        lable.font = UIFont.systemFont(ofSize: 15)
         lable.textColor = .lightGray
         lable.translatesAutoresizingMaskIntoConstraints = false
         return lable
@@ -185,59 +185,57 @@ class ViewController: UIViewController {
     private func setupLayout() {
         lable.snp.makeConstraints{ make in
             make.centerX.equalTo(view)
-            make.top.equalTo(view).inset(90)
+            make.top.equalTo(view.frame.height).offset(90)
         }
         
         emailTextField.snp.makeConstraints { make in
             make.centerX.equalTo(view)
-            make.top.equalTo(lable).inset(100)
-            make.left.right.equalToSuperview().inset(75)
-            make.height.equalToSuperview().inset(405)
-            
+            make.top.equalTo(lable).offset(100)
+            make.left.equalTo(view.frame.width).offset(75)
+            make.height.equalTo(39)
         }
         
         passwordTextField.snp.makeConstraints { make in
             make.centerX.equalTo(view)
-            make.top.equalTo(lable).offset(150)
-            make.left.right.equalToSuperview().inset(75)
-            make.height.equalToSuperview().inset(405)
+            make.top.equalTo(emailTextField).offset(55)
+            make.left.equalTo(view.frame.width).offset(75)
+            make.height.equalTo(39)
         }
         
         buttonLogin.snp.makeConstraints { make in
             make.centerX.equalTo(view)
-            make.top.equalTo(lable).offset(235)
-            make.left.right.equalToSuperview().inset(75)
-            make.height.equalToSuperview().inset(405)
+            make.top.equalTo(passwordTextField).offset(90)
+            make.left.equalTo(view.frame.width).offset(75)
+            make.height.equalTo(39)
         }
         
         buttonForgotPsw.snp.makeConstraints { make in
             make.centerX.equalTo(view)
-            make.top.equalTo(lable).offset(275)
-            make.left.right.equalToSuperview().inset(75)
-            make.height.equalToSuperview().inset(405)
+            make.top.equalTo(buttonLogin).offset(49)
+            make.left.equalTo(view.frame.width).offset(75)
+            make.height.equalTo(39)
         }
         
         connectionLable.snp.makeConstraints { make in
             make.centerX.equalTo(view)
-            make.top.equalTo(lable).offset(500)
-            make.left.right.equalToSuperview().inset(75)
-            make.height.equalToSuperview().inset(405)
+            make.bottom.equalTo(view).offset(-110)
+            make.top.equalTo(buttonForgotPsw).offset(150)
+            make.left.equalTo(view.frame.width).offset(75)
+            make.height.equalTo(39)
         }
         
         lineLeft.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(lable).offset(522)
-            make.left.equalToSuperview().inset(20)
-            make.right.equalToSuperview().inset(280)
-            make.height.equalToSuperview().inset(425)
+            make.centerX.equalTo(connectionLable.snp_centerXWithinMargins).offset(-110)
+            make.centerY.equalTo(connectionLable.snp_centerYWithinMargins).offset(0)
+            make.width.equalTo(100)
+            make.height.equalTo(2)
         }
         
         lineRigth.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(lable).offset(522)
-            make.left.equalToSuperview().inset(280)
-            make.right.equalToSuperview().inset(20)
-            make.height.equalToSuperview().inset(425)
+            make.centerX.equalTo(connectionLable.snp_centerXWithinMargins).offset(104)
+            make.centerY.equalTo(connectionLable.snp_centerYWithinMargins).offset(0)
+            make.width.equalTo(100)
+            make.height.equalTo(2)
         }
         
         buttonFacebook.snp.makeConstraints { make in
