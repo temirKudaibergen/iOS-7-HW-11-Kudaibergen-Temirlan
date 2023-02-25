@@ -6,14 +6,284 @@
 //
 
 import UIKit
+import SnapKit
+
 
 class ViewController: UIViewController {
-
+    
+    // MARK: - Outlets
+    
+    private var lable: UILabel = {
+        let lable = UILabel()
+        lable.text = "Login"
+        lable.textAlignment = .center
+        lable.font = UIFont.boldSystemFont(ofSize: 30)
+        lable.textColor = .white
+        lable.translatesAutoresizingMaskIntoConstraints = false
+        return lable
+    }()
+    
+    private var emailTextField: UITextField = {
+        let emailImage = UIImage(named: "userIcon")
+        let emailTextField = UITextField()
+        emailTextField.placeholder = "Email"
+        emailTextField.textColor = .white
+        emailTextField.font = UIFont.systemFont(ofSize: 13)
+        emailTextField.textAlignment = .left
+        emailTextField.backgroundColor = .white
+        emailTextField.borderStyle = .none
+        emailTextField.layer.cornerRadius = 19
+        emailTextField.returnKeyType = .go
+        emailTextField.clearButtonMode = .whileEditing
+        emailTextField.setLefyIcon(emailImage ?? UIImage.remove)
+        return emailTextField
+    }()
+    
+    private var passwordTextField: UITextField = {
+        let passwordImage = UIImage(named: "padlock")
+        let passwordTextField = UITextField()
+        passwordTextField.placeholder = "Password"
+        passwordTextField.textColor = .white
+        passwordTextField.font = UIFont.systemFont(ofSize: 13)
+        passwordTextField.textAlignment = .left
+        passwordTextField.backgroundColor = .white
+        passwordTextField.borderStyle = .none
+        passwordTextField.layer.cornerRadius = 19
+        passwordTextField.returnKeyType = .go
+        passwordTextField.clearButtonMode = .whileEditing
+        passwordTextField.setLefyIcon(passwordImage ?? UIImage.remove)
+        return passwordTextField
+    }()
+    
+    private var buttonLogin: UIButton = {
+        let buttonLogin = UIButton()
+        buttonLogin.backgroundColor = .purple
+        buttonLogin.clipsToBounds = true
+        buttonLogin.layer.cornerRadius = 19
+        buttonLogin.setTitle("Login", for: .normal)
+        buttonLogin.setTitleColor(.white, for: .normal)
+        buttonLogin.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        return buttonLogin
+    }()
+    
+    
+    private var buttonForgotPsw: UIButton = {
+        let buttonForgotPsw = UIButton()
+        buttonForgotPsw.backgroundColor = .none
+        buttonForgotPsw.clipsToBounds = true
+        buttonForgotPsw.setTitle("Forgot your password?", for: .normal)
+        buttonForgotPsw.setTitleColor(.white, for: .normal)
+        buttonForgotPsw.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        return buttonForgotPsw
+    }()
+    
+    private var connectionLable: UILabel = {
+        let lable = UILabel()
+        lable.text = "or connect with"
+        lable.textAlignment = .center
+        lable.font = UIFont.boldSystemFont(ofSize: 20)
+        lable.textColor = .lightGray
+        lable.translatesAutoresizingMaskIntoConstraints = false
+        return lable
+    }()
+    
+    private var lineLeft: UIView = {
+        let line = UIView()
+        line.backgroundColor = .black
+        line.layer.cornerRadius = 10
+        return line
+    }()
+    
+    private var lineRigth: UIView = {
+        let line = UIView()
+        line.backgroundColor = .black
+        line.layer.cornerRadius = 10
+        return line
+    }()
+    
+    private var buttonFacebook: UIButton = {
+        let facebookIcon = UIImage(named: "facebook.png")
+        let buttonLogin = UIButton()
+        buttonLogin.backgroundColor = .systemBlue
+        buttonLogin.clipsToBounds = true
+        buttonLogin.layer.cornerRadius = 19
+        buttonLogin.setTitle("Facebook", for: .normal)
+        buttonLogin.setTitleColor(.white, for: .normal)
+        buttonLogin.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        return buttonLogin
+    }()
+    
+    private var buttonTwitter: UIButton = {
+        let buttonLogin = UIButton()
+        buttonLogin.backgroundColor = .blue
+        buttonLogin.clipsToBounds = true
+        buttonLogin.layer.cornerRadius = 19
+        buttonLogin.setTitle("Twitter", for: .normal)
+        buttonLogin.setTitleColor(.white, for: .normal)
+        buttonLogin.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        return buttonLogin
+    }()
+    
+    private var lableHaveAccount: UILabel = {
+        let lable = UILabel()
+        lable.text = "Dont have account?"
+        lable.textAlignment = .center
+        lable.font = UIFont.boldSystemFont(ofSize: 13)
+        lable.textColor = .lightGray
+        lable.translatesAutoresizingMaskIntoConstraints = false
+        return lable
+    }()
+    
+    private var buttonSignUp: UIButton = {
+        let buttonForgotPsw = UIButton()
+        buttonForgotPsw.backgroundColor = .none
+        buttonForgotPsw.clipsToBounds = true
+        buttonForgotPsw.setTitle("Sign Up", for: .normal)
+        buttonForgotPsw.setTitleColor(.green, for: .normal)
+        buttonForgotPsw.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        return buttonForgotPsw
+    }()
+    
+    // MARK: - Lifcycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png") ?? UIImage.remove)
+        view.addSubview(lable)
+        view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(buttonLogin)
+        view.addSubview(buttonForgotPsw)
+        view.addSubview(connectionLable)
+        view.addSubview(lineLeft)
+        view.addSubview(lineRigth)
+        view.addSubview(buttonFacebook)
+        view.addSubview(buttonTwitter)
+        view.addSubview(lableHaveAccount)
+        view.addSubview(buttonSignUp)
+        setupLayout()
+        setupHierarchy()
     }
+    
+    // MARK: - Setup
+    
+    private func setupHierarchy() {
+        view.addSubview(lable)
+        view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(buttonLogin)
+        view.addSubview(buttonForgotPsw)
+        view.addSubview(connectionLable)
+        view.addSubview(lineLeft)
+        view.addSubview(lineRigth)
+        view.addSubview(buttonFacebook)
+        view.addSubview(buttonTwitter)
+        view.addSubview(lableHaveAccount)
+        view.addSubview(buttonSignUp)
+    }
+    
+    private func setupLayout() {
+        lable.snp.makeConstraints{ make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(view).inset(90)
+        }
+        
+        emailTextField.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(lable).inset(100)
+            make.left.right.equalToSuperview().inset(75)
+            make.height.equalToSuperview().inset(405)
+            
+        }
+        
+        passwordTextField.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(lable).offset(150)
+            make.left.right.equalToSuperview().inset(75)
+            make.height.equalToSuperview().inset(405)
+        }
+        
+        buttonLogin.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(lable).offset(235)
+            make.left.right.equalToSuperview().inset(75)
+            make.height.equalToSuperview().inset(405)
+        }
+        
+        buttonForgotPsw.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(lable).offset(275)
+            make.left.right.equalToSuperview().inset(75)
+            make.height.equalToSuperview().inset(405)
+        }
+        
+        connectionLable.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(lable).offset(500)
+            make.left.right.equalToSuperview().inset(75)
+            make.height.equalToSuperview().inset(405)
+        }
+        
+        lineLeft.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(lable).offset(522)
+            make.left.equalToSuperview().inset(20)
+            make.right.equalToSuperview().inset(280)
+            make.height.equalToSuperview().inset(425)
+        }
+        
+        lineRigth.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(lable).offset(522)
+            make.left.equalToSuperview().inset(280)
+            make.right.equalToSuperview().inset(20)
+            make.height.equalToSuperview().inset(425)
+        }
+        
+        buttonFacebook.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(lable).offset(600)
+            make.left.equalToSuperview().inset(20)
+            make.right.equalToSuperview().inset(200)
+            make.height.equalToSuperview().inset(407)
+        }
+        
+        buttonTwitter.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(lable).offset(600)
+            make.left.equalToSuperview().inset(200)
+            make.right.equalToSuperview().inset(20)
+            make.height.equalToSuperview().inset(407)
+        }
+        
+        lableHaveAccount.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(lable).offset(650)
+            make.left.equalToSuperview().inset(65)
+            make.right.equalToSuperview().inset(200)
+            make.height.equalToSuperview().inset(407)
+        }
+        
+        buttonSignUp.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(lable).offset(650)
+            make.left.equalToSuperview().inset(200)
+            make.right.equalToSuperview().inset(86)
+            make.height.equalToSuperview().inset(407)
+        }
+    }
+}
+// MARK: - Actions
 
-
+extension UITextField {
+    func setLefyIcon(_ image: UIImage) {
+        let iconView = UIImageView(frame: CGRect(x: 10, y: 5, width: 20, height: 20))
+        iconView.image = image
+        let iconContainerView: UIView = UIView(frame: CGRect(x: 20, y: 0, width: 37, height: 30))
+        iconContainerView.addSubview(iconView)
+        leftView = iconContainerView
+        leftViewMode = .always
+        
+    }
 }
 
