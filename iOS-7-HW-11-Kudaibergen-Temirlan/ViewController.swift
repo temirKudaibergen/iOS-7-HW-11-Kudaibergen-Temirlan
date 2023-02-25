@@ -106,7 +106,7 @@ class ViewController: UIViewController {
         let buttonLogin = UIButton()
         buttonLogin.backgroundColor = .systemBlue
         buttonLogin.clipsToBounds = true
-        buttonLogin.layer.cornerRadius = 19
+        buttonLogin.layer.cornerRadius = 15
         buttonLogin.setTitle("Facebook", for: .normal)
         buttonLogin.setTitleColor(.white, for: .normal)
         buttonLogin.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -117,7 +117,7 @@ class ViewController: UIViewController {
         let buttonLogin = UIButton()
         buttonLogin.backgroundColor = .blue
         buttonLogin.clipsToBounds = true
-        buttonLogin.layer.cornerRadius = 19
+        buttonLogin.layer.cornerRadius = 15
         buttonLogin.setTitle("Twitter", for: .normal)
         buttonLogin.setTitleColor(.white, for: .normal)
         buttonLogin.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -225,49 +225,45 @@ class ViewController: UIViewController {
         }
         
         lineLeft.snp.makeConstraints { make in
-            make.centerX.equalTo(connectionLable.snp_centerXWithinMargins).offset(-110)
+            make.centerX.equalTo(connectionLable.snp_centerXWithinMargins).offset(-120)
             make.centerY.equalTo(connectionLable.snp_centerYWithinMargins).offset(0)
             make.width.equalTo(100)
             make.height.equalTo(2)
         }
         
         lineRigth.snp.makeConstraints { make in
-            make.centerX.equalTo(connectionLable.snp_centerXWithinMargins).offset(104)
+            make.centerX.equalTo(connectionLable.snp_centerXWithinMargins).offset(120)
             make.centerY.equalTo(connectionLable.snp_centerYWithinMargins).offset(0)
             make.width.equalTo(100)
             make.height.equalTo(2)
         }
         
         buttonFacebook.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(lable).offset(600)
-            make.left.equalToSuperview().inset(20)
-            make.right.equalToSuperview().inset(200)
-            make.height.equalToSuperview().inset(407)
+            make.centerX.equalTo(view).offset(-80)
+            make.top.equalTo(lineLeft).offset(35)
+            make.height.equalTo(29)
+            make.width.equalTo(150)
         }
         
         buttonTwitter.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(lable).offset(600)
-            make.left.equalToSuperview().inset(200)
-            make.right.equalToSuperview().inset(20)
-            make.height.equalToSuperview().inset(407)
+            make.centerX.equalTo(view).offset(80)
+            make.top.equalTo(lineRigth).offset(35)
+            make.height.equalTo(29)
+            make.width.equalTo(150)
         }
         
         lableHaveAccount.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(lable).offset(650)
-            make.left.equalToSuperview().inset(65)
-            make.right.equalToSuperview().inset(200)
-            make.height.equalToSuperview().inset(407)
+            make.centerX.equalTo(view).offset(-60)
+            make.top.equalTo(buttonFacebook).offset(45)
+            make.height.equalTo(29)
+            make.width.equalTo(150)
         }
         
         buttonSignUp.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(lable).offset(650)
-            make.left.equalToSuperview().inset(200)
-            make.right.equalToSuperview().inset(86)
-            make.height.equalToSuperview().inset(407)
+            make.centerX.equalTo(view).offset(60)
+            make.top.equalTo(buttonTwitter).offset(45)
+            make.height.equalTo(29)
+            make.width.equalTo(150)
         }
     }
 }
