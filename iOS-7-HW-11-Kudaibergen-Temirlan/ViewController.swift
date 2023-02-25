@@ -24,10 +24,10 @@ class ViewController: UIViewController {
     }()
     
     private var emailTextField: UITextField = {
-        let emailImage = UIImage(named: "userIcon")
+        let emailImage = UIImage(named: "user")
         let emailTextField = UITextField()
         emailTextField.placeholder = "Email"
-        emailTextField.textColor = .white
+        emailTextField.textColor = .black
         emailTextField.font = UIFont.systemFont(ofSize: 13)
         emailTextField.textAlignment = .left
         emailTextField.backgroundColor = .white
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         let passwordImage = UIImage(named: "padlock")
         let passwordTextField = UITextField()
         passwordTextField.placeholder = "Password"
-        passwordTextField.textColor = .white
+        passwordTextField.textColor = .black
         passwordTextField.font = UIFont.systemFont(ofSize: 13)
         passwordTextField.textAlignment = .left
         passwordTextField.backgroundColor = .white
