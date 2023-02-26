@@ -9,8 +9,6 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-
-class ViewController: UIViewController {
     
     // MARK: - Outlets
     
